@@ -17,6 +17,8 @@ import Login from './components/Login/Login';
 import Registration from './components/Registration/Registration';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Events from './components/Events/Events';
+import Admin from './components/AdminPanel/Admin';
+import VolunteerRegisterList from './components/AdminPanel/VolunteerRegisterList';
 export const UserContext = createContext();
 function App() {
   const [loggedInUser,setLoggedInUser]=useState({});
@@ -47,6 +49,13 @@ function App() {
 
    <Route path="/events">
     <Events></Events>
+   </Route>
+   <Route path="/admin">
+     <Admin />
+   </Route>
+   <Route path="/registerList">
+     <VolunteerRegisterList></VolunteerRegisterList>
+
    </Route>
    <Route path="*">
      <NotFound></NotFound>

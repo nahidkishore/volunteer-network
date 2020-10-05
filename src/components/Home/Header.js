@@ -18,8 +18,8 @@ const Header = () => {
       <Nav.Link href="#link">Donation</Nav.Link>
       <Nav.Link href="#home"><NavLink to="/events">Events</NavLink></Nav.Link>
       <Nav.Link href="#link">Blog</Nav.Link>
-      <Nav.Link href="#home"><Button variant="success"><NavLink to="/register/:eventKey"></NavLink></Button></Nav.Link>
-      <Nav.Link href="#link"><Button variant="dark">Admin</Button></Nav.Link>
+      <Nav.Link ><Button variant="success"><NavLink to="/register/:eventKey">Events</NavLink></Button></Nav.Link>
+      <Nav.Link href="#link"><Button variant="dark"><NavLink to="/admin">Admin</NavLink></Button></Nav.Link>
     
     </Nav>
 

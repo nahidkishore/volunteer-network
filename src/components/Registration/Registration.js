@@ -24,7 +24,7 @@ const Registration = () => {
   const[events,setEvents]=useState({});
 const{name,picture,id}=events;
 
-  useEffect(() =>{
+   useEffect(() =>{
     const selectedEvent= Data.find(item => item.id==eventKey)
     setEvents(selectedEvent)
   },[eventKey])

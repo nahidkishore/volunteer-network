@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form, FormControl } from 'react-bootstrap';
-import Data from '../Data/Data';
 import './Home.css'
 import HomeDetails from './HomeDetails';
 const Home = () => {
+  const [eventData,setEventData]=useState([]);
+  useEffect(()=>{
+    fetch('http://localhost:7000/datas')
+    .then(res =>res.json())
+    .then(data =>setEventData(data))
+  },[eventData])
   return (
     <>
       <div className="home-container">
@@ -16,7 +21,7 @@ const Home = () => {
     </div>
     <div className="row">
       {
-        Data.map(data =><HomeDetails key={data.id} data={data}></HomeDetails>)
+        eventData.map(data =><HomeDetails key={data.id} data={data}></HomeDetails>)
       }
     </div>
     </>
