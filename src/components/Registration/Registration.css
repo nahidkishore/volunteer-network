@@ -1,0 +1,9 @@
+.Registration-Form{
+  justify-content: center;
+  display:grid;
+}
+.logo{
+  width:20%;
+  margin-left:80px;
+  margin-bottom:30px;
+}

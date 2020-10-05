@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Nav, Navbar } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import logo from '../../resource/logos/Group 1329.png';
 import './Header.css';
 
@@ -9,7 +10,7 @@ const Header = () => {
   return (
     <div>
  <Navbar bg="light" expand="lg">
-  <Navbar.Brand href="#home"><img width="20%" src={logo} alt=""/> </Navbar.Brand>
+  <Navbar.Brand href="#home"><NavLink to="/"><img width="20%" src={logo} alt=""/></NavLink>  </Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto ">

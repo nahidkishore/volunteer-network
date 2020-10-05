@@ -14,6 +14,8 @@ import {
 } from "react-router-dom";
 import NotFound from './components/NotFound/NotFound';
 import Login from './components/Login/Login';
+import Registration from './components/Registration/Registration';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 export const UserContext = createContext();
 function App() {
   const [loggedInUser,setLoggedInUser]=useState({});
@@ -26,12 +28,22 @@ function App() {
    <Route path="/home">
    <Home></Home>
    </Route>
+
    <Route exact path="/">
    <Home></Home>
    </Route>
+
+    <PrivateRoute  path="/register/:eventKey">
+    <Registration></Registration>
+   </PrivateRoute> *
+{/* <PrivateRoute path="/registerId/:id">
+<Registration></Registration>
+</PrivateRoute> */}
+
    <Route path="/login">
     <Login></Login>
    </Route>
+   
    <Route path="*"><NotFound></NotFound></Route>
  </Switch>
     </Router>
