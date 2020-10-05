@@ -13,7 +13,7 @@ const Admin = () => {
   const [saveEvents,setSaveEvents]=useState({});
 
   const handleAddData=() => {
-    fetch('http://localhost:7000/addAllData',{
+    fetch('https://radiant-harbor-03462.herokuapp.com/addAllData',{
       method: 'POST',
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify(saveEvents)

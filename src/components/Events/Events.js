@@ -9,7 +9,7 @@ const Events = () => {
 const [loggedInUser,setLoggedInUser]=useContext(UserContext);
 
   useEffect(()=>{
-      fetch('http://localhost:7000/events?email='+loggedInUser.email)
+      fetch('https://radiant-harbor-03462.herokuapp.com/events?email='+loggedInUser.email)
       .then(res=>res.json())
       .then(data=>setRegisteredEvent(data));
   },[loggedInUser])

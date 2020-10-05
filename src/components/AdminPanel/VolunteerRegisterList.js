@@ -7,7 +7,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import logo from '../../resource/logos/delete.png' ;
 import DeleteIcon from '@material-ui/icons/Delete';
 
 const StyledTableCell = withStyles((theme) => ({
@@ -53,7 +52,7 @@ const VolunteerRegisterList = () => {
   /* const {name,description,email,date}=registerEvents; */
   useEffect(()=>{
         
-    fetch('http://localhost:7000/allRegisteredEvents')
+    fetch('https://radiant-harbor-03462.herokuapp.com/allRegisteredEvents')
     .then(res=>res.json())
     .then(data=>setRegisteredEvents(data))
 
@@ -61,7 +60,7 @@ const VolunteerRegisterList = () => {
 
 
 const handleEventDelete=(id)=>{
-  fetch('http://localhost:7000/deleteEvent',{
+  fetch('https://radiant-harbor-03462.herokuapp.com/deleteEvent',{
       method:'DELETE',
       headers:{
           'Content-Type':'application/json',
@@ -69,9 +68,9 @@ const handleEventDelete=(id)=>{
       }
   })
   .then(res=>res.json())
-  .then(result=>{
+  .then(data=>{
       const existingEvents = registerEvents.filter(data=>data._id !== id)
-      if(result){
+      if(data){
           setRegisteredEvents(existingEvents)
       }
   })

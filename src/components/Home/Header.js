@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import { UserContext } from '../../App';
 import logo from '../../resource/logos/Group 1329.png';
 import './Header.css';
 
 
 
 const Header = () => {
+  const [loggedInUser,setLoggedInUser]=useContext(UserContext);
   return (
     <div>
  <Navbar bg="light" expand="lg">
@@ -20,7 +22,7 @@ const Header = () => {
       <Nav.Link href="#link">Blog</Nav.Link>
       <Nav.Link ><Button variant="success"><NavLink to="/register/:eventKey">Events</NavLink></Button></Nav.Link>
       <Nav.Link href="#link"><Button variant="dark"><NavLink to="/admin">Admin</NavLink></Button></Nav.Link>
-    
+      <Nav.Link href="#">{loggedInUser.name}</Nav.Link>
     </Nav>
 
   </Navbar.Collapse>

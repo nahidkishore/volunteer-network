@@ -49,7 +49,7 @@ const handleRegister=() => {
 
   const newRegistration={...loggedInUser, ...selectedDate, ...events, description};
   console.log(newRegistration);
-  fetch('http://localhost:7000/addRegisteredEvent',{
+  fetch('https://radiant-harbor-03462.herokuapp.com/addRegisteredEvent',{
     method: 'POST',
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify(newRegistration)
