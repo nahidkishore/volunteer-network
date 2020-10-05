@@ -16,6 +16,7 @@ import NotFound from './components/NotFound/NotFound';
 import Login from './components/Login/Login';
 import Registration from './components/Registration/Registration';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Events from './components/Events/Events';
 export const UserContext = createContext();
 function App() {
   const [loggedInUser,setLoggedInUser]=useState({});
@@ -43,8 +44,13 @@ function App() {
    <Route path="/login">
     <Login></Login>
    </Route>
-   
-   <Route path="*"><NotFound></NotFound></Route>
+
+   <Route path="/events">
+    <Events></Events>
+   </Route>
+   <Route path="*">
+     <NotFound></NotFound>
+     </Route>
  </Switch>
     </Router>
      

@@ -2,7 +2,7 @@ import { TextField } from '@material-ui/core';
 import React, { useContext, useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { UserContext } from '../../App';
 import logo from '../../resource/logos/Group 1329.png';
 import Data from '../Data/Data';
@@ -42,9 +42,26 @@ const{name,picture,id}=events;
     newDates.CurrentDate=date;
     setSelectedDate(newDates);
   };
+  const history=useHistory();
+  const userDescription = document.getElementById("description");
 const handleRegister=() => {
+  const description=userDescription.value;
 
+  const newRegistration={...loggedInUser, ...selectedDate, ...events, description};
+  console.log(newRegistration);
+  fetch('http://localhost:7000/addRegisteredEvent',{
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify(newRegistration)
+  })
+  .then(res=>res.json())
+.then(data=>{
+  console.log(data);
+})
+history.push('/events');
 }
+
+
   return (
 
     <div className="Registration-Form">
@@ -80,7 +97,7 @@ const handleRegister=() => {
     </MuiPickersUtilsProvider>
 
 
-  <Form.Control size="sm" type="text" name="description" ref={register({ required: true })} placeholder="Description" />
+  <Form.Control size="sm" type="text" id="description" name="description" ref={register({ required: true })} placeholder="Description" />
   {errors.description && <span className="error">Description is required</span>}
 <br/>
   <Form.Control size="sm" type="text" ref={register({ required: true })} defaultValue={name} />
