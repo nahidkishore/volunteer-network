@@ -1,16 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, {useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../App';
+
 import SingleEvent from './SingleEvent';
 
 const Events = () => {
   const [registeredEvent,setRegisteredEvent]=useState([]);
-  const [loggedInUser,setLoggedInUser]=useContext(UserContext);
+const [loggedInUser,setLoggedInUser]=useContext(UserContext);
 
   useEffect(()=>{
-      fetch('http://localhost:7000/events')
+      fetch('http://localhost:7000/events?email='+loggedInUser.email)
       .then(res=>res.json())
       .then(data=>setRegisteredEvent(data));
-  },[])
+  },[loggedInUser])
   return (
     <div>
       <h3 style={{textAlign:"center"}}>you have: {registeredEvent.length} events</h3>
