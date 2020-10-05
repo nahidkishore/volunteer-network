@@ -1,3 +1,4 @@
+import { Grid } from '@material-ui/core';
 import React, {useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../App';
 
@@ -12,14 +13,20 @@ const [loggedInUser,setLoggedInUser]=useContext(UserContext);
       .then(res=>res.json())
       .then(data=>setRegisteredEvent(data));
   },[loggedInUser])
+
   return (
-    <div>
+    <div  >
       <h3 style={{textAlign:"center"}}>you have: {registeredEvent.length} events</h3>
-      <div>
-      {
+    
+<div className="row">
+   {
         registeredEvent.map(event => <SingleEvent event={event}></SingleEvent>)
       }
-      </div>
+</div>
+   
+  
+  
+      
     
     </div>
   );

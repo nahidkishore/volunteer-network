@@ -36,7 +36,7 @@ function App() {
 
     <PrivateRoute  path="/register/:eventKey">
     <Registration></Registration>
-   </PrivateRoute> *
+   </PrivateRoute>
 {/* <PrivateRoute path="/registerId/:id">
 <Registration></Registration>
 </PrivateRoute> */}
