@@ -13,8 +13,8 @@ const HomeDetails = (props) => {
   return (
 
   
-     <div className="col-md-3">
-      <div onClick={handleDetails} className="card" style={{marginBottom:'5px'}}>
+     <div className="col-md-3" onClick={handleDetails}>
+      <div  className="card" style={{marginBottom:'15px'}}>
         <img style={{height:'300px'}} src={picture} alt=""/>
         <div className="card-body">
       

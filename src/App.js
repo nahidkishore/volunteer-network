@@ -19,12 +19,13 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Events from './components/Events/Events';
 import Admin from './components/AdminPanel/Admin';
 import VolunteerRegisterList from './components/AdminPanel/VolunteerRegisterList';
+import Blogs from './components/Others/Blogs';
+import Donation from './components/Others/Donation';
 export const UserContext = createContext();
 function App() {
   const [loggedInUser,setLoggedInUser]=useState({});
   return (
 <UserContext.Provider value={[loggedInUser,setLoggedInUser]}>
-  <p>name:{loggedInUser.name}</p>
     <Router>
  <Header></Header>
  <Switch>
@@ -39,9 +40,6 @@ function App() {
     <PrivateRoute  path="/register/:eventKey">
     <Registration></Registration>
    </PrivateRoute>
-{/* <PrivateRoute path="/registerId/:id">
-<Registration></Registration>
-</PrivateRoute> */}
 
    <Route path="/login">
     <Login></Login>
@@ -55,6 +53,14 @@ function App() {
    </Route>
    <Route path="/registerList">
      <VolunteerRegisterList></VolunteerRegisterList>
+
+   </Route>
+   <Route path="/blog">
+     <Blogs></Blogs>
+
+   </Route>
+   <Route path="/donation">
+     <Donation></Donation>
 
    </Route>
    <Route path="*">
