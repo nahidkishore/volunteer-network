@@ -9,6 +9,7 @@ const Home = () => {
     .then(res =>res.json())
     .then(data =>setEventData(data))
   },[eventData])
+
   return (
     <>
       <div className="home-container">
