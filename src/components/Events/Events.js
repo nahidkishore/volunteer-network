@@ -14,9 +14,20 @@ const Events = () => {
     )
       .then((res) => res.json())
       .then((data) => setRegisteredEvent(data))
-  }, [registeredEvent]);
+  }, [loggedInUser]);
 
- 
+ const deleteEvent = (id) => {
+        fetch(`https://stormy-temple-22049.herokuapp.com/delete/${id}`, {
+            method: 'DELETE'
+        })
+            .then(response => response.json())
+            .then(result => {
+                if (result) {
+                    console.log(result)
+                }
+
+            })
+    }
 
   return (
     <section>
@@ -28,7 +39,7 @@ const Events = () => {
         <div className="row mt-5">
         {registeredEvent.length === 0 && <CircularProgress />}
           {registeredEvent.map((event) => (
-            <SingleEvent event={event} key={event._id} ></SingleEvent>
+            <SingleEvent event={event} key={event._id} deleteEvent={deleteEvent}></SingleEvent>
           ))}
         </div>
       </div>

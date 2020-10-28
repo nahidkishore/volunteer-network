@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
-import { Button } from "react-bootstrap";
-import { UserContext } from "../../App";
+import React from "react";
+
 
 const SingleEvent = (props) => {
-  const { name, email, CurrentDate, description, picture } = props.event;
+  const { name, CurrentDate, picture } = props.event;
   /*  const [loggedInUser,setLoggedInUser]=useContext(UserContext); */
 
   return (
@@ -26,7 +25,7 @@ const SingleEvent = (props) => {
            
           </div>
           <div className="d-flex justify-content-center">
-          <button type="button" className="btn btn-danger">
+          <button onClick={() =>props.deleteEvent(props.event._id)} type="button" className="btn btn-danger">
               Cancel
             </button>
           </div>
