@@ -45,25 +45,23 @@ const Login = () => {
       });
   };
   return (
-<section>
-<div className="container login-container">
-     <Link to="/home">
-     <img className="logo img-fluid mt-5" src={logo} alt="" />
-     </Link>
-     <h3 className="text-center">Register as a Volunteer</h3>
-      <div className="box d-flex justify-content-center align-items-center text-center">
-     
-        <div className="login  ">
-          <h3>Login with</h3>
-          <button onClick={handleGoogleSignIn}>
-          
-            <img src={googleIcon} className="GoogleIcon" alt="" /> Continue with
-            Google
-          </button>
+    <section>
+      <div className="container login-container">
+        <Link to="/home">
+          <img className="logo img-fluid mt-5" src={logo} alt="" />
+        </Link>
+        <h3 className="text-center">Register as a Volunteer</h3>
+        <div className="box d-flex justify-content-center align-items-center text-center">
+          <div className="login  ">
+            <h3>Login with</h3>
+            <button onClick={handleGoogleSignIn}>
+              <img src={googleIcon} className="GoogleIcon" alt="" /> Continue
+              with Google
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-</section>
+    </section>
   );
 };
 

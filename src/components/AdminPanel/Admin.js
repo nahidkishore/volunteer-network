@@ -1,6 +1,5 @@
-import { FormGroup, TextareaAutosize } from "@material-ui/core";
 import React, { useState } from "react";
-import { Button, Col, Form, FormControl, Row } from "react-bootstrap";
+import { Button, Col, Form } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import Data from "../Data/Data";
 import "./Admin.css";
@@ -31,12 +30,10 @@ const Admin = () => {
     <div className="col row ">
       <div className="col-12 col-md-6">
         <p style={{ cursor: "pointer" }} onClick={handleAddData}>
-          {" "}
           <img src={plus} alt="" /> Add event
         </p>
         <div>
           <p style={{ cursor: "pointer" }} onClick={list}>
-            {" "}
             <img src={logo} alt="" /> Volunteer Register List
           </p>
         </div>
