@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, Nav, Navbar } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { UserContext } from '../../App';
 import logo from '../../resource/logos/Group 1329.png';
 import './Header.css';
@@ -10,24 +9,63 @@ import './Header.css';
 const Header = () => {
   const [loggedInUser,setLoggedInUser]=useContext(UserContext);
   return (
-    <div>
- <Navbar bg="light" expand="lg">
-  <Navbar.Brand href="#home"><NavLink to="/"><img width="20%" src={logo} alt=""/></NavLink>  </Navbar.Brand>
-  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="mr-auto ">
-      <Nav.Link href="#home"><NavLink to="/home">Home</NavLink></Nav.Link>
-      <Nav.Link href="#link"><NavLink to="/donation">Donation</NavLink></Nav.Link>
-      <Nav.Link href="#home"><NavLink to="/events">Events</NavLink></Nav.Link>
-      <Nav.Link href="#link"><NavLink to="/blog">Blogs</NavLink></Nav.Link>
-      <Nav.Link ><Button variant="success"><NavLink to="/register/:eventKey">Events</NavLink></Button></Nav.Link>
-      <Nav.Link href="#link"><Button variant="dark"><NavLink to="/admin">Admin</NavLink></Button></Nav.Link>
-      <Nav.Link href="#">{loggedInUser.name}</Nav.Link>
-    </Nav>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div className="container">
+        <Link to="/home" className="navbar-brand">
+          <img src={logo} alt="" className="img-fluid" />
+        </Link>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-  </Navbar.Collapse>
-</Navbar>
-    </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav ml-auto" style={{ fontSize: " 1.22em" }}>
+            <li class="nav-item active">
+              <Link className="nav-link ml-2" to="/home">
+                Home
+              </Link>
+            </li>
+            <li class="nav-item">
+              <Link className="nav-link" to="/donation">
+              Donation
+              </Link>
+            </li>
+
+            <li class="nav-item">
+              <Link className="nav-link" to="/events">
+                Events
+              </Link>
+            </li>
+            <li class="nav-item">
+              <Link className="nav-link" to="/blog">
+                Blogs
+              </Link>
+            </li>
+            <li class="nav-item">
+              <Link className="nav-link" to="/login">
+                <button className="button-reg">Register</button>
+              </Link>
+            </li>
+            <li class="nav-item">
+              <Link className="nav-link " to="/">
+                <button className="button">Admin</button>
+              </Link>
+            </li>
+            <li class="nav-item">
+  <p>{loggedInUser.name}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 };
 
