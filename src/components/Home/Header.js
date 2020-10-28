@@ -1,13 +1,11 @@
-import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { UserContext } from '../../App';
-import logo from '../../resource/logos/Group 1329.png';
-import './Header.css';
-
-
+import React, { useContext } from "react";
+import { Link} from "react-router-dom";
+import { UserContext } from "../../App";
+import logo from "../../resource/logos/Group 1329.png";
+import "./Header.css";
 
 const Header = () => {
-  const [loggedInUser,setLoggedInUser]=useContext(UserContext);
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   return (
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div className="container">
@@ -35,7 +33,7 @@ const Header = () => {
             </li>
             <li class="nav-item">
               <Link className="nav-link" to="/donation">
-              Donation
+                Donation
               </Link>
             </li>
 
@@ -60,7 +58,7 @@ const Header = () => {
               </Link>
             </li>
             <li class="nav-item">
-  <p>{loggedInUser.name}</p>
+              <p>{loggedInUser.name}</p>
             </li>
           </ul>
         </div>
