@@ -16,13 +16,16 @@ const Events = () => {
       .then((data) => setRegisteredEvent(data))
   }, [loggedInUser]);
 
- const deleteEvent = (id) => {
-        fetch(`https://stormy-temple-22049.herokuapp.com/delete/${id}`, {
-            method: 'DELETE'
+ const handleCancelEvent = (id) => {
+        fetch(`https://radiant-harbor-03462.herokuapp.com/cancelEvent/${id}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' }
         })
             .then(response => response.json())
             .then(result => {
                 if (result) {
+                  const newEvents =registeredEvent.filter(vEvent=>vEvent._id !== id)
+                  setRegisteredEvent(newEvents)
                     console.log(result)
                 }
 
@@ -39,7 +42,7 @@ const Events = () => {
         <div className="row mt-5">
         {registeredEvent.length === 0 && <CircularProgress />}
           {registeredEvent.map((event) => (
-            <SingleEvent event={event} key={event._id} deleteEvent={deleteEvent}></SingleEvent>
+            <SingleEvent event={event} key={event._id} handleCancelEvent={handleCancelEvent}></SingleEvent>
           ))}
         </div>
       </div>

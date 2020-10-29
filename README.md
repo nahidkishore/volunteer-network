@@ -7,8 +7,10 @@ A full-stack single page web page with dashboard and multiple options of the vol
 ## Technology
 
 * React
-* React-router,
-* Node.js
+* React-router
+* Rest API
+* Nodejs
+* Express js
 * Material UI
 * Bootstrap
 * React Bootstrap 
