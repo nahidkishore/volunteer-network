@@ -7,7 +7,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import DeleteIcon from '@material-ui/icons/Delete';
+
+import VolunteerRegisterListTable from './VolunteerRegisterListTable';
+import Sidebar from './Sidebar/Sidebar';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -19,13 +21,7 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell);
 
-const StyledTableRow = withStyles((theme) => ({
-  root: {
-    '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.action.hover,
-    },
-  },
-}))(TableRow);
+
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -58,26 +54,35 @@ const VolunteerRegisterList = () => {
 
 },[])
 
-
-const handleEventDelete=(id)=>{
-  fetch('https://radiant-harbor-03462.herokuapp.com/deleteEvent',{
-      method:'DELETE',
-      headers:{
-          'Content-Type':'application/json',
-          id:id
-      }
+const handleCancelEvent = (id) => {
+  fetch(`https://radiant-harbor-03462.herokuapp.com/cancelEvent/${id}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
   })
-  .then(res=>res.json())
-  .then(data=>{
-      const existingEvents = registerEvents.filter(data=>data._id !== id)
-      if(data){
-          setRegisteredEvents(existingEvents)
+    .then((response) => response.json())
+    .then((result) => {
+      if (result) {
+        const newEvents = registerEvents.filter(
+          (vEvent) => vEvent._id !== id
+        );
+        setRegisteredEvents(newEvents);
+        console.log(result);
       }
-  })
+    });
+};
 
-}
   return (
-    <TableContainer component={Paper}>
+    <section>
+      <div className="container">
+        
+        <div className="row">
+          <div className="col-md-4 mt-5">
+          
+            <Sidebar></Sidebar>
+          </div>
+<div className="col-md-8">
+<h2 className="text-brand text-center my-5">Volunteer Registration List </h2>
+<TableContainer component={Paper}>
     <Table className={classes.table} aria-label="customized table">
       <TableHead>
         <TableRow>
@@ -90,24 +95,20 @@ const handleEventDelete=(id)=>{
       </TableHead>
       <TableBody>
         {
-          registerEvents.map(event =>{
-            return (
-              
-                <StyledTableRow>
-             
-            <StyledTableCell align="right">{event.email}</StyledTableCell>
-            <StyledTableCell align="right">{event.CurrentDate}</StyledTableCell>
-            <StyledTableCell align="right">{event.name}</StyledTableCell>
-            <StyledTableCell align="right"><DeleteIcon style={{cursor:'pointer'}} onClick={handleEventDelete} /> </StyledTableCell>
-                </StyledTableRow>
-              
-            )
-          })
+          registerEvents.map(event =><VolunteerRegisterListTable event={event}
+            key={event._id}
+            handleCancelEvent={handleCancelEvent}></VolunteerRegisterListTable>)
         }
         
       </TableBody>
     </Table>
   </TableContainer>
+</div>
+        </div>
+     
+      </div>
+      
+    </section>
   );
 };
 
