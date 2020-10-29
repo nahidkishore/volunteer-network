@@ -33,12 +33,11 @@ const Login = () => {
         history.replace(from);
       })
       .catch(function (error) {
-    
         var errorCode = error.code;
         var errorMessage = error.message;
-        
+
         var email = error.email;
-       
+
         var credential = error.credential;
         // ...
       });
@@ -54,7 +53,7 @@ const Login = () => {
           </div>
           <div className="col-md-8 col-12 col-sm-6">
             <h3 className="text-center mt-5 mx-5 d-flex justify-content-start text-brand">
-              Register as a Volunteer
+              Registration Form
             </h3>
             <div className="box d-flex justify-content-center align-items-center text-center">
               <div className="login  ">
