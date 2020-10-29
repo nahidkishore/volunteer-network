@@ -1,30 +1,29 @@
-
-.logo{
-  width:20%;
-  margin-left:80px;
-  margin-bottom:30px;
+.logo {
+  width: 20%;
+  margin-left: 80px;
+  margin-bottom: 30px;
 }
-.box{
-  margin:70px;;
+.box {
+  margin: 70px;
   border: 3px solid #ffffff9f;
   padding: 10px;
   width: 400px;
   height: 400px;
   background-color: #e2ebe5;
 }
-.GoogleIcon{
-  width:30px;
+.GoogleIcon {
+  width: 30px;
   float: left;
 }
-.login{
+.login {
   text-align: center;
 
   margin: 30px;
   margin-top: 20px;
 }
-.login button{
-  height:40px;
+.login button {
+  height: 40px;
   width: 100%;
   border: 1px solid #fffffffb;
-  border-radius:30px;
+  border-radius: 30px;
 }

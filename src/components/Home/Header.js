@@ -53,8 +53,8 @@ const Header = () => {
               </Link>
             </li>
             <li class="nav-item">
-              <Link className="nav-link " to="/admin">
-                <button className="button">Admin</button>
+              <Link className="nav-link " to="/dashboard">
+                <button className="button">Dashboard</button>
               </Link>
             </li>
             <li class="nav-item">

@@ -65,75 +65,85 @@ const Registration = () => {
   };
 
   return (
-    <div className="Registration-Form">
-      <img src={logo} alt="" />
-      <div className="box">
-        <div className="login">
-          <form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
-            <Form.Group>
-              <Form.Control
-                size="lg"
-                type="text"
-                placeholder="Your name"
-                ref={register({ required: true })}
-                value={loggedInUser.name}
-              />
-              {errors.name && <span className="error">Name is required</span>}
-              <br />
-              <Form.Control
-                type="text"
-                value={loggedInUser.email}
-                ref={register({ required: true })}
-                placeholder="Your Email address"
-              />
-              {errors.email && <span className="error">Email is required</span>}
-              <br />
-
-              <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <Grid container justify="space-around">
-                  <KeyboardDatePicker
-                    disableToolbar
-                    variant="inline"
-                    format="dd/MM/yyyy"
-                    margin="normal"
-                    id="date-picker-inline"
-                    label="current date"
-                    value={selectedDate.CurrentDate}
-                    onChange={handleCurrentDate}
-                    KeyboardButtonProps={{
-                      "aria-label": "change date",
-                    }}
+    <section>
+      <div className="container">
+        <div className="Registration-Form row">
+          <div className="col-md-4 col-12 col-sm-6 mt-5 ">
+            <img src={logo} alt="" />
+          </div>
+          <div className="box col-md-8 col-sm-6 col-12">
+            <div className="login">
+              <form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
+                <Form.Group>
+                  <Form.Control
+                    size="lg"
+                    type="text"
+                    placeholder="Your name"
+                    ref={register({ required: true })}
+                    value={loggedInUser.name}
                   />
-                </Grid>
-              </MuiPickersUtilsProvider>
+                  {errors.name && (
+                    <span className="error">Name is required</span>
+                  )}
+                  <br />
+                  <Form.Control
+                    type="text"
+                    value={loggedInUser.email}
+                    ref={register({ required: true })}
+                    placeholder="Your Email address"
+                  />
+                  {errors.email && (
+                    <span className="error">Email is required</span>
+                  )}
+                  <br />
 
-              <Form.Control
-                size="sm"
-                type="text"
-                id="description"
-                name="description"
-                ref={register({ required: true })}
-                placeholder="Description"
-              />
-              {errors.description && (
-                <span className="error">Description is required</span>
-              )}
-              <br />
-              <Form.Control
-                size="sm"
-                type="text"
-                ref={register({ required: true })}
-                defaultValue={name}
-              />
-              <br />
-              <Button onClick={handleRegister} variant="success">
-                Registration
-              </Button>
-            </Form.Group>
-          </form>
+                  <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                    <Grid container justify="space-around">
+                      <KeyboardDatePicker
+                        disableToolbar
+                        variant="inline"
+                        format="dd/MM/yyyy"
+                        margin="normal"
+                        id="date-picker-inline"
+                        label="current date"
+                        value={selectedDate.CurrentDate}
+                        onChange={handleCurrentDate}
+                        KeyboardButtonProps={{
+                          "aria-label": "change date",
+                        }}
+                      />
+                    </Grid>
+                  </MuiPickersUtilsProvider>
+
+                  <Form.Control
+                    size="sm"
+                    type="text"
+                    id="description"
+                    name="description"
+                    ref={register({ required: true })}
+                    placeholder="Description"
+                  />
+                  {errors.description && (
+                    <span className="error">Description is required</span>
+                  )}
+                  <br />
+                  <Form.Control
+                    size="sm"
+                    type="text"
+                    ref={register({ required: true })}
+                    defaultValue={name}
+                  />
+                  <br />
+                  <Button onClick={handleRegister} variant="success">
+                    Registration
+                  </Button>
+                </Form.Group>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -13,7 +13,7 @@ A full-stack single page web page with dashboard and multiple options of the vol
 * Express js
 * Material UI
 * Bootstrap
-* React Bootstrap 
+* React-Bootstrap 
 * MongoDB
 * Firebase Authentication	
 

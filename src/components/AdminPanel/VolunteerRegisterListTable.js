@@ -1,6 +1,6 @@
 import React from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { withStyles} from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 
 import TableCell from "@material-ui/core/TableCell";
 
@@ -36,7 +36,7 @@ const VolunteerRegisterListTable = ({ event, handleCancelEvent }) => {
         <DeleteIcon
           style={{ cursor: "pointer" }}
           onClick={() => handleCancelEvent(_id)}
-        />{" "}
+        />
       </StyledTableCell>
     </StyledTableRow>
   );

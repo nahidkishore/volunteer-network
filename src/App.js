@@ -21,6 +21,9 @@ import VolunteerRegisterList from "./components/AdminPanel/VolunteerRegisterList
 import Blogs from "./components/Others/Blogs";
 import Donation from "./components/Others/Donation";
 import Home from "./components/Home/Home";
+import AllEvents from "./components/AdminPanel/AllEvents/AllEvents";
+import MakeAdmin from "./components/AdminPanel/MakeAdmin/MakeAdmin";
+import Dashboard from "./components/Dashboard/Dashboard";
 export const UserContext = createContext();
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
@@ -43,12 +46,20 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
-
+          <PrivateRoute path="/dashboard">
+            <Dashboard></Dashboard>
+          </PrivateRoute>
           <Route path="/events">
             <Events></Events>
           </Route>
-          <Route path="/admin">
+          <Route path="/AllEvents">
+            <AllEvents></AllEvents>
+          </Route>
+          <Route path="/addEvents">
             <Admin />
+          </Route>
+          <Route path="/makeAdmin">
+            <MakeAdmin></MakeAdmin>
           </Route>
           <Route path="/registerList">
             <VolunteerRegisterList></VolunteerRegisterList>
