@@ -19,4 +19,4 @@ A full-stack single page web page with dashboard and multiple options of the vol
 
 ## ScreenShots 
 
-![s1](https://user-images.githubusercontent.com/39863835/97438034-7706a600-194e-11eb-810a-1a0341ef25af.jpg)
+![screencapture-localhost-3000-2020-10-29-21_13_32](https://user-images.githubusercontent.com/39863835/97593677-1e0d3f80-1a2c-11eb-95b0-810b4e9bdee2.png)
