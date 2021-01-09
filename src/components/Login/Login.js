@@ -1,18 +1,18 @@
-import React, { useContext } from "react";
-import * as firebase from "firebase/app";
-import "firebase/auth";
-import firebaseConfig from "./firebase.config";
-import { UserContext } from "../../App";
-import { Link, useHistory, useLocation } from "react-router-dom";
-import logo from "../../resource/logos/Group 1329.png";
-import "./Login.css";
-import googleIcon from "../../resource/images/google.png";
+import React, { useContext } from 'react';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import firebaseConfig from './firebase.config';
+import { UserContext } from '../../App';
+import { Link, useHistory, useLocation } from 'react-router-dom';
+import logo from '../../resource/logos/Group 1329.png';
+import './Login.css';
+import googleIcon from '../../resource/images/google.png';
 
 const Login = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const history = useHistory();
   const location = useLocation();
-  const { from } = location.state || { from: { pathname: "/" } };
+  const { from } = location.state || { from: { pathname: '/' } };
 
   if (firebase.apps.length === 0) {
     firebase.initializeApp(firebaseConfig);
@@ -44,25 +44,15 @@ const Login = () => {
   };
   return (
     <section>
-      <div className="container login-container">
-        <div className="row">
-          <div className="col-md-4 col-12 col-sm-6">
-            <Link to="/home">
-              <img className="img-fluid mt-5" src={logo} alt="" />
-            </Link>
-          </div>
-          <div className="col-md-8 col-12 col-sm-6">
-            <h3 className="text-center mt-5 mx-5 d-flex justify-content-start text-brand">
-              Registration Form
-            </h3>
-            <div className="box d-flex justify-content-center align-items-center text-center">
-              <div className="login  ">
-                <h3>Login with</h3>
-                <button onClick={handleGoogleSignIn}>
-                  <img src={googleIcon} className="GoogleIcon" alt="" />{" "}
-                  Continue with Google
-                </button>
-              </div>
+      <div className='container login-container'>
+        <div className='mt-5 d-flex justify-content-center align-items-center'>
+          <div className='box d-flex justify-content-center align-items-center text-center'>
+            <div className='login  '>
+              <h3>Login with</h3>
+              <button onClick={handleGoogleSignIn}>
+                <img src={googleIcon} className='GoogleIcon' alt='' /> Continue
+                with Google
+              </button>
             </div>
           </div>
         </div>

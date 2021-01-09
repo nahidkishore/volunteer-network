@@ -1,15 +1,11 @@
 import React, { createContext, useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Home/Header";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  Redirect,
-  useHistory,
-  useLocation,
+  
 } from "react-router-dom";
 import NotFound from "./components/NotFound/NotFound";
 import Login from "./components/Login/Login";
@@ -36,6 +32,7 @@ function App() {
 
 
       <Router>
+        <Header></Header>
         <Switch>
           <Route path="/home">
             <Home></Home>
@@ -55,9 +52,9 @@ function App() {
           <PrivateRoute path="/dashboard">
             <Dashboard></Dashboard>
           </PrivateRoute>
-          <Route path="/events">
+          <PrivateRoute path="/events">
             <Events></Events>
-          </Route>
+          </PrivateRoute>
           <Route path="/AllEvents">
             <AllEvents></AllEvents>
           </Route>

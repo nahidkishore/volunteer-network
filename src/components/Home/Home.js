@@ -7,7 +7,7 @@ import Footer from "./Footer/Footer";
 const Home = () => {
   return (
     <div>
-      <Header></Header>
+      {/* <Header></Header> */}
       <Event></Event>
       <Footer></Footer>
     </div>
