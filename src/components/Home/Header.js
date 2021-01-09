@@ -5,7 +5,7 @@ import logo from "../../resource/logos/Group 1329.png";
 import "./Header.css";
 
 const Header = () => {
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const [loggedInUser, setLoggedInUser]= useContext(UserContext);
   return (
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div className="container">
@@ -58,7 +58,7 @@ const Header = () => {
               </Link>
             </li>
             <li class="nav-item">
-              <p>{loggedInUser.name}</p>
+              <p >{loggedInUser.name}</p>
             </li>
           </ul>
         </div>

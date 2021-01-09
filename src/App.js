@@ -25,10 +25,16 @@ import AllEvents from "./components/AdminPanel/AllEvents/AllEvents";
 import MakeAdmin from "./components/AdminPanel/MakeAdmin/MakeAdmin";
 import Dashboard from "./components/Dashboard/Dashboard";
 export const UserContext = createContext();
+
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
+  
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+
+
+
+
       <Router>
         <Switch>
           <Route path="/home">
@@ -75,6 +81,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+    
     </UserContext.Provider>
   );
 }
